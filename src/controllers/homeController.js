@@ -35,4 +35,8 @@ const  saveRegister = async (req,res) =>
 const showUser = (req, res) => {
     res.render('viewUser.ejs')
 }
-module.exports= {getHome,registerForm,saveRegister,showUser};
+
+const loginForm = (req, res) => {
+    res.render('login.ejs');
+}
+module.exports= {getHome,registerForm,saveRegister,showUser,loginForm};
