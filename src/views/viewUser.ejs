@@ -23,6 +23,7 @@
   </head>
   <body>
     <h2>Danh Sách Người Dùng</h2>
+    <!-- <%= JSON.stringify(listUser) %> -->
     <table>
       <thead>
         <tr>
@@ -30,8 +31,28 @@
           <th>Username</th>
           <th>Password</th>
           <th>Email</th>
+          <th>Action</th>
         </tr>
       </thead>
+      <tbody>
+        <% for (let i = 0; i< listUser.length; i++) { %>
+        <tr>
+          <td><%= listUser[i].name %></td>
+          <td><%= listUser[i].username %></td>
+          <td><%= listUser[i].pass %></td>
+          <td><%= listUser[i].email %></td>
+          <td>
+            <a href="/editUser/<%= listUser[i].name %>">Edit</a>
+            <form
+              action="/postDeleteUser/<%= listUser[i].name %>"
+              method="post"
+            >
+              <button>Delete</button>
+            </form>
+          </td>
+        </tr>
+        <%} %>
+      </tbody>
     </table>
   </body>
 </html>
